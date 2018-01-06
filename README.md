@@ -1,27 +1,35 @@
 # v-progress
 
-> progress ui component for vue2
+> progress ui component for vue2，copy from rc-progress, so props can reference [rc-progress](https://github.com/fis-components/rc-progress)
 
-## Build Setup
+由于个人需要，没有找到合适的组件。于是仿照了react-component的rc-progress写了这个vue的组件，prop都可以参照rc-progress的API
 
-``` bash
-# install dependencies
-npm install
+## Use
+ 
+**install**
 
-# serve with hot reload at localhost:8080
-npm run dev
+`npm install v-progress --save`
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
+## Example
 ```
+<template>
+    <v-line :percent="percent" stroke-width="4" :strokeColor="color"/>
+    <v-circle :percent="percent" stroke-width="6" stroke-linecap="round" :strokeColor="color"/>
+</template>
+<script>
+import {VCircle, VLine} from 'v-progress'
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+export default {
+  components: {
+    VCircle,
+    VLine
+  },
+  data() {
+    return {
+      percent: 30,
+      color: '#3FC7FA'
+    }
+  }
+}
+</script>
+```
